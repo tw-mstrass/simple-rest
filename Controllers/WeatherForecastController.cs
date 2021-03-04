@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace simple_rest.Controllers
 {
@@ -26,13 +27,21 @@ namespace simple_rest.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = rng.Next(-20, 55),
                     Summary = Summaries[rng.Next(Summaries.Length)]
                 })
                 .ToArray();
+
+            foreach (var forecast in forecasts)
+            {
+                Log.Information("Created forecast for {Date}: {TempC}ºC ({Summary})",
+                    forecast.Date, forecast.TemperatureC, forecast.Summary);
+            }
+
+            return forecasts;
         }
     }
 }

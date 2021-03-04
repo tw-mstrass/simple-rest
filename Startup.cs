@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace simple_rest
 {
@@ -37,6 +38,10 @@ namespace simple_rest
             }
 
             app.UseHttpsRedirection();
+
+            // Write streamlined request completion events.
+            // See https://github.com/serilog/serilog-aspnetcore
+            app.UseSerilogRequestLogging();
 
             app.UseRouting();
 
