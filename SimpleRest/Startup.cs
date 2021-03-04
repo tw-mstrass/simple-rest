@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 
-namespace simple_rest
+namespace SimpleRest
 {
     public class Startup
     {
@@ -23,7 +23,7 @@ namespace simple_rest
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "simple_rest", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "SimpleRest", Version = "v1"});
             });
             // Required to include correlation ID log enrichment.
             services.AddHttpContextAccessor();
@@ -36,7 +36,7 @@ namespace simple_rest
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "simple_rest v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SimpleRest v1"));
             }
 
             app.UseHttpsRedirection();

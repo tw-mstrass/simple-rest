@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "simple_rest": {
+    "SimpleRest": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

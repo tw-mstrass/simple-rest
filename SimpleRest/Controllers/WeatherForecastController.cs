@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
-namespace simple_rest.Controllers
+namespace SimpleRest.Controllers
 {
     [ApiController]
     [Route("[controller]")]

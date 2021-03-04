@@ -1,6 +1,6 @@
 using System;
 
-namespace simple_rest
+namespace SimpleRest
 {
     public class WeatherForecast
     {
