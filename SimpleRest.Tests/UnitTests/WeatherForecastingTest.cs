@@ -4,7 +4,7 @@ using Xunit;
 
 namespace SimpleRest.Tests.UnitTests
 {
-    public class WeatherForecastControllerTest
+    public class WeatherForecastingTest
     {
         [Theory]
         [InlineData(-20)]
