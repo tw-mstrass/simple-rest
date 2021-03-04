@@ -25,6 +25,8 @@ namespace simple_rest
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "simple_rest", Version = "v1"});
             });
+            // Required to include correlation ID log enrichment.
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
