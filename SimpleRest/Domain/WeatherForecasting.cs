@@ -1,12 +1,21 @@
 using System;
+using System.Collections.Generic;
 
 namespace SimpleRest.Domain
 {
-    public class WeatherForecasting
+    public static class WeatherForecasting
     {
-        private static readonly string[] Summaries =
+        private static readonly Dictionary<int, string> SummaryMaxValues = new()
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            {-1, "Freezing"},
+            {5, "Bracing"},
+            {10, "Chilly"},
+            {15, "Cool"},
+            {20, "Mild"},
+            {25, "Warm"},
+            {30, "Balmy"},
+            {38, "Hot"},
+            {45, "Sweltering"},
         };
 
         public static WeatherForecast RandomForecast(int dayOffset)
@@ -23,13 +32,15 @@ namespace SimpleRest.Domain
 
         public static string WeatherSummary(int temperatureC)
         {
-            if (temperatureC < 0)
+            foreach (var summaryMaxValue in SummaryMaxValues)
             {
-                return "Freezing";
+                if (temperatureC <= summaryMaxValue.Key)
+                {
+                    return summaryMaxValue.Value;
+                }
             }
 
-            var rng = new Random();
-            return Summaries[rng.Next(Summaries.Length)];
+            return "Scorching";
         }
     }
 }
