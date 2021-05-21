@@ -13,3 +13,5 @@ OpenAPI information at `/swagger/html`.
 - Logging using [Serilog](https://serilog.net), including Development-only output to a local
   [Seq](https://datalust.co/seq) instance configured [as described
   here](https://gist.github.com/mjstrasser/78d47b99efa7fbae2dc9634012ef6c18).
+
+## The end.
